@@ -40,4 +40,9 @@ public class Stack02 {
         boolean isEmpty = top == 0;
         return isEmpty;
     }
+
+    public int peek() {
+        if (isEmpty()) throw new EmptyStackException();
+        return arr[top - 1];
+    }
 }
