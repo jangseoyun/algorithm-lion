@@ -1,5 +1,7 @@
 package com.algorithm.day16;
 
+import java.util.EmptyStackException;
+
 public class Stack02 {
 
     private Integer[] arr;
@@ -24,10 +26,18 @@ public class Stack02 {
     }
 
     public int pop() {
+        if (top == 0) {
+            throw new EmptyStackException();
+        }
+
         //arr[--top];
         Integer pop = arr[top - 1];
         top--;
         return pop;
     }
 
+    public boolean isEmpty() {
+        boolean isEmpty = top == 0;
+        return isEmpty;
+    }
 }

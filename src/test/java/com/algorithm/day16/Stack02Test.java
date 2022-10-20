@@ -1,10 +1,14 @@
 package com.algorithm.day16;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.EmptyStackException;
+import java.util.Stack;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("stack")
 class Stack02Test {
@@ -36,9 +40,40 @@ class Stack02Test {
         assertEquals(10, st.pop());
     }
 
-    @DisplayName("Name")
+    @DisplayName("isEmpty")
     @Test
-    void Name() {
+    void isEmpty() {
+        Stack02 st = new Stack02();
 
+        assertTrue(st.isEmpty());
+        st.push(10);
+        assertFalse(st.isEmpty());
+        st.pop();
+        assertTrue(st.isEmpty());
+    }
+
+    @DisplayName("realStack")
+    @Test
+    void realStack() {
+        Stack<Integer> stack = new Stack<>();
+        assertThrows(EmptyStackException.class, () -> {
+            stack.pop();
+        });
+    }
+
+    @DisplayName("poshAndPop")
+    @Test
+    void poshAndPop() {
+        Stack02 st = new Stack02();
+        st.push(10);
+        st.push(20);
+        assertEquals(20, st.pop());
+        assertEquals(10, st.pop());
+
+        //스택이 비어 있을때는?
+        // exception 예외의 검증
+        assertThrows(EmptyStackException.class, () -> {
+            st.pop();
+        });
     }
 }
