@@ -15,6 +15,7 @@ class Stack02Test {
 
     @BeforeEach
     void setUp() {
+        Stack02 st = new Stack02();
         System.out.println("beforeEach");
     }
 
@@ -92,4 +93,5 @@ class Stack02Test {
         int peeked = st.peek();
         assertEquals(10, peeked);
     }
+
 }
