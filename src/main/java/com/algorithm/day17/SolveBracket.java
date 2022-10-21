@@ -12,6 +12,14 @@ public class SolveBracket {
         }
         return input.length() == 0;
     }
+
+    public boolean solution02(String input) {
+        while (input.indexOf("()") <= 0) {
+            String[] splitted = input.split("\\(\\)");
+            input = String.join("", splitted);
+        }
+        return input.length() == 0;
+    }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
