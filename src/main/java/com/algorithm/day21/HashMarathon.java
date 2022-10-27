@@ -1,51 +1,38 @@
 package com.algorithm.day21;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class HashMarathon {
-    class Person {
-        private String key;
-        private Integer value;
 
-        public Person(String key, Integer value) {
-            this.key = key;
-            this.value = value;
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        Map<String, String> tmpMap = new HashMap<>();
+
+        for (int i = 0; i < participant.length; i++) {
+            tmpMap.put(participant[i], "participant");
         }
 
-        public String getKey() {
-            return key;
+        for (int i = 0; i < completion.length; i++) {
+            tmpMap.put(completion[i], "completion");
         }
 
-        public Integer getValue() {
-            return value;
+        System.out.println(tmpMap);
+
+        for (String person : tmpMap.keySet()) {
+            String result = "participant";
+            if (tmpMap.get(person).equals(result)) {
+                answer =  person;
+            }
         }
-    }
-
-    private int size;
-    private List<Person>[] participant;
-
-    public HashMarathon() {
-        this.size = 100_000;
-        this.participant = new ArrayList[size];
-    }
-
-    public int hash(String key) {
-        int sum = 0;
-        for (int i = 0; i < key.length(); i++) {
-            sum += key.charAt(i);
-        }
-        return sum % participant.length;
-    }
-
-    public void insert(String key, int value) {
-
+        return answer;
     }
     public static void main(String[] args) {
         HashMarathon T = new HashMarathon();
         Scanner sc = new Scanner(System.in);
-        String[] par = {"leo", "kiki", "eden"};
-
+        String[] participant = {"leo", "kiki", "eden"};
+        String[] completion = {"eden", "kiki"};
+        T.solution(participant, completion);
     }
 }
