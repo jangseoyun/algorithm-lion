@@ -30,7 +30,6 @@ public class HashMarathon {
     }
     public static void main(String[] args) {
         HashMarathon T = new HashMarathon();
-        Scanner sc = new Scanner(System.in);
         String[] participant = {"leo", "kiki", "eden"};
         String[] completion = {"eden", "kiki"};
         System.out.println(T.solution(participant, completion));
