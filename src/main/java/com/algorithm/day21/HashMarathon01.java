@@ -5,24 +5,22 @@ import java.util.Map;
 
 public class HashMarathon01 {
 
-    public String solution(String[] participant, String[] completion) {
+    /**
+     * 스트링으로 접근할 경우 value를 올려줄 수 없기 때문에 Integer로 다시 구현
+     * @param participants
+     * @param completions
+     * @return
+     */
+    public String solution(String[] participants, String[] completions) {
         String answer = "";
         Map<String, Integer> tmpMap = new HashMap<>();
 
-        for (int i = 0; i < participant.length; i++) {
-            String key = participant[i];
-            // 바로 put을 하지 않습니다.
-            // 바로 put을 할 수도 없고 숫자를 올리긴 해야겠고
-            if (!tmpMap.containsKey(key)) {
-                tmpMap.put(key, 0);
-            }
-            tmpMap.put(key, tmpMap.get(key) + 1);
+        for (String participant : participants) {
+            tmpMap.put(participant, tmpMap.getOrDefault(participant, 0) + 1);
         }
 
-
-        for (int i = 0; i < completion.length; i++) {
-            String key = completion[i]; // value 1
-            tmpMap.put(key, tmpMap.get(key) - 1);
+        for (String completion : completions) {
+            tmpMap.put(completion, tmpMap.getOrDefault(completion, 0) - 1);
         }
 
         System.out.println(tmpMap);
