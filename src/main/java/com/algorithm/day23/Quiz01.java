@@ -9,14 +9,22 @@ package com.algorithm.day23;
  */
 
 public class Quiz01  {
-    public int[] solution(int[] answers) {
-        int[] answer = {};
+    public int[] solution(int[] result) {
+        int[] answer = new int[3];//3명의 학생 시험 결과
+
+        int[] student01 = {1, 2, 3, 4, 5};
+        int[] student02 = {2, 1, 2, 3, 2, 4, 2, 5};
+        int[] student03 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
+
+        for (int i = 0; i < result.length; i++) {
+
+        }
 
         return answer;
     }
     public static void main(String[] args) {
         Quiz01 T = new Quiz01();
-        int[] arr = {1, 2, 3, 4, 5};
-        System.out.println(T.solution(arr));
+        int[] result = {1, 2, 3, 4, 5};
+        System.out.println(T.solution(result));
     }
 }
