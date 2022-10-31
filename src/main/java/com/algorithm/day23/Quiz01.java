@@ -17,7 +17,9 @@ public class Quiz01  {
         int[] student03 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
 
         for (int i = 0; i < result.length; i++) {
-
+            if (result[i] == student01[i % student01.length]) {//1번 학생 결과
+                answer[0]++;
+            }
         }
 
         return answer;
