@@ -39,15 +39,18 @@ public class Quiz01  {
         int max = 0;
         List<Integer> answer = new ArrayList<>();
         for (int i = 0; i < tmp.length; i++) {
-            max = Integer.max(tmp[i], tmp[i + 1]);
+            max = Math.max(tmp[0], Math.max(tmp[1], tmp[2]));
             if (max == tmp[i]) {
-                tmp = new int[i + 1];
-                tmp[i] = i + 1;
+                answer.add(i + 1);
             }
         }
 
-        System.out.println(max);
-        return tmp;
+        int[] scoreResult = new int[answer.size()];
+        for (int i = 0; i < answer.size(); i++) {
+            scoreResult[i] = answer.get(i);
+        }
+
+        return scoreResult;
     }
     public static void main(String[] args) {
         Quiz01 T = new Quiz01();
