@@ -1,5 +1,7 @@
 package com.algorithm.day23;
 
+import java.util.Arrays;
+
 /**
  * 모의고사 알고리즘
  * 1번 수포자가 찍는 방식: 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ...
@@ -16,11 +18,22 @@ public class Quiz01  {
         int[] student02 = {2, 1, 2, 3, 2, 4, 2, 5};
         int[] student03 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
 
+        //각 학생 시험 결과
         for (int i = 0; i < result.length; i++) {
             if (result[i] == student01[i % student01.length]) {//1번 학생 결과
                 answer[0]++;
             }
+
+            if (result[i] == student02[i % student02.length]) {
+                answer[1]++;
+            }
+
+            if (result[i] == student03[i % student03.length]) {
+                answer[2]++;
+            }
         }
+
+        System.out.println(Arrays.toString(answer));
 
         return answer;
     }
