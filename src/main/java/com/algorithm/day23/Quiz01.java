@@ -33,13 +33,21 @@ public class Quiz01  {
             }
         }
 
-        System.out.println(Arrays.toString(answer));
+        //가장 많이 맞춘 학생
+        int max = 0;
+        for (int i = 0; i < answer.length - 1; i++) {
+            max = Integer.max(answer[i], answer[i + 1]);
+            if (max == answer[i]) {
 
+            }
+        }
+
+        System.out.println(max);
         return answer;
     }
     public static void main(String[] args) {
         Quiz01 T = new Quiz01();
-        int[] result = {1, 2, 3, 4, 5};
+        int[] result = {1, 3, 2, 4, 2};
         System.out.println(T.solution(result));
     }
 }
