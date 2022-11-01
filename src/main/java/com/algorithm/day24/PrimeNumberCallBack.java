@@ -1,16 +1,16 @@
 package com.algorithm.day24;
 
+interface StatementStrategy{
+    boolean compare(int a, int b);
+}
 public class PrimeNumberCallBack {
-    public boolean someOperation(int a, int b) {
-        return a < b; //i < n
-    }
 
-    public boolean isPrime(int n) {
+    public boolean isPrime(int n, StatementStrategy stmt) {
         // i < n
         // i < n / 2
         // i * i < n
         // Math.sqrt(n) 루트 구하기 (연산이 많다)
-        for (int i = 2; someOperation(i, n); i++) {
+        for (int i = 2; stmt.compare(i, n); i++) {
             if (n % i == 0) {
                 return false;
             }
