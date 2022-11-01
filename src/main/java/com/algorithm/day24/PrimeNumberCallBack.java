@@ -12,11 +12,11 @@ public class PrimeNumberCallBack {
         // Math.sqrt(n) 루트 구하기 (연산이 많다)
         for (int i = 2; stmt.compare(i, n); i++) {
             System.out.println(i);
-            if (n % i == 0) {
-                return false;
+            if (n % i != 0) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public static void main(String[] args) {
