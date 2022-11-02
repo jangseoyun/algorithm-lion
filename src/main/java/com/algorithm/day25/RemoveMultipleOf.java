@@ -15,10 +15,13 @@ public class RemoveMultipleOf {
         }
         System.out.println(list);
 
-        //2. 2의 배수부터 제거
-        for (int i = 2; i < list.size(); i++) {
-            if (list.get(i) % i == 0) {
-                list.remove(i);
+        //2. n의 배수 제거
+        for (int i = 2; i <= n; i++) {
+            for (int j = i; j <= n; j = j + i) {//배수만큼 증가
+                if (list.get(j) % i == 0 && list.get(j) != j) {
+                    list.remove(j);
+                    answer++;
+                }
             }
         }
 
