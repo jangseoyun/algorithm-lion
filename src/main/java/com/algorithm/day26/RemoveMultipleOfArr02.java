@@ -9,16 +9,14 @@ import java.util.Scanner;
 //5, 8
 public class RemoveMultipleOfArr02 {
     public int solution(int n) {
-        int cnt = 0;
+        n = 50; // n은 50개
+        int[] nums = new int[n - 1]; // n-1개 만큼 2~50개까지 총 49개
+        boolean[] checks = new boolean[nums.length]; // nums만큼 checks 생성
+        Arrays.fill(checks, true); //checks를 true로 초기와 : 기본값 true
 
-        for (int i = 2; i < n; i++) {
-            System.out.print("i: " + i);
-            for (int j = i; j < n; j = j + i) {//베수 출력
-                System.out.println(" j: " + j);
-            }
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = i + 2;//2~50까지
         }
-
-        return cnt;
     }
 
     public static void main(String[] args) {
