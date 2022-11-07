@@ -1,22 +1,28 @@
 package com.algorithm.day27;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.List;
 
 public class Array01 {
-    public List<Integer> solution(int[] arr, int divisor) {
-        List<Integer> answer = new ArrayList<>();
+    public int[] solution(int[] arr, int divisor) {
+        List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % divisor == 0) {
-                answer.add(arr[i]);
+                list.add(arr[i]);
             }
         }
-        answer.sort(Comparator.naturalOrder());
 
-        if (answer.size() == 0) {
-            answer.add(-1);
+        int[] answer = new int[list.size()];
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = list.get(i);
+        }
+
+        Arrays.sort(answer);
+
+        if (list.size() == 0) {
+            return new int[]{-1};
         }
 
         return answer;
