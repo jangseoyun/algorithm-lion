@@ -3,8 +3,13 @@ package com.algorithm.day28;
 import java.util.Scanner;
 
 public class SimpleSearch {
-    public int solution() {
-        int answer = 0;
+    public int solution(int[] arr, int k) {
+        int answer = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == k) {
+                answer = i + 1;
+            }
+        }
 
         return answer;
     }
@@ -17,6 +22,6 @@ public class SimpleSearch {
             arr[i] = sc.nextInt();
         }
         int k = sc.nextInt();
-        System.out.println(T.solution());
+        System.out.println(T.solution(arr, k));
     }
 }
