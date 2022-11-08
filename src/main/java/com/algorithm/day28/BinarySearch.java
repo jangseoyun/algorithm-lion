@@ -9,11 +9,11 @@ public class BinarySearch {
         int start = 0;
         int finished = nums.length;
         int target = 7;
+        int middle = (finished / 2);
 
-        for (int i = start; i < finished; i++) {
-            int middle = (finished / 2);
+        while (middle == 1) {
             if (middle == target) {
-                return target;
+                answer = middle;
             } else if (middle < target) {
                 start = middle;
             } else if (middle > target) {
@@ -21,7 +21,7 @@ public class BinarySearch {
             }
         }
 
-        return answer;
+        return middle;
     }
 
     public static void main(String[] args) {
