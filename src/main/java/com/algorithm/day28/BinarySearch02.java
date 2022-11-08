@@ -9,18 +9,21 @@ public class BinarySearch02 {
         //중간값
         int startIdx = 0;
         int endIdx = nums.length - 1;
-        int midIdx = nums.length / 2;
-        int midVlaue = nums[midIdx];
 
-        //인덱스 (시작점, 끝점) 옮기기
-        if (midVlaue > targetNum) {
-            startIdx = midIdx + 1;
-        } else if (midVlaue < targetNum) {
-            endIdx = midIdx - 1;
-        } else {
-            //같은지 비교하기
-            //같은 경우 return
-            System.out.println(midIdx);
+        while (startIdx <= endIdx) {
+            int midIndex = (startIdx + endIdx) / 2; // start:0 end:10
+            System.out.println(midIndex);
+
+            if (midIndex == targetNum) {
+                System.out.printf("%d는 %d에 있습니다.", targetNum, midIndex);
+                break;
+            } else if (midIndex > targetNum) {
+                // ---3---5----- 중간값 이상은 모두 버립니다. 5포함.
+                endIdx = midIndex - 1;
+            } else if (midIndex < targetNum) {
+                // ------5---7-- 중간값 이하는 모두 버립니다. 5포함.
+                startIdx = midIndex + 1;
+            }
         }
 
     }
