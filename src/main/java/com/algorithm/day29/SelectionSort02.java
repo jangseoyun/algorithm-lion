@@ -2,23 +2,23 @@ package com.algorithm.day29;
 
 import java.util.Arrays;
 
-interface StatementStrategy {
+interface SortStrategy {
     boolean apply(int a, int b);
-
 }
-public class SelectionSort02{
 
-    public int[] selectionSort(int[] arr, StatementStrategy stmt) {
+public class SelectionSort02 {
+
+    public int[] selectionSort(int[] arr, SortStrategy stmt) {
         for (int i = 0; i < arr.length - 1; i++) {
-            int maxIdx = i;
+            int swapIdx = i;
             for (int j = i + 1; j < arr.length; j++) {
-                if (stmt.apply(arr[maxIdx], arr[j])) {
-                    maxIdx = j;
+                if (stmt.apply(arr[swapIdx], arr[j])) {
+                    swapIdx = j;
                 }
             }
             int tmp = arr[i];
-            arr[i] = arr[maxIdx];
-            arr[maxIdx] = tmp;
+            arr[i] = arr[swapIdx];
+            arr[swapIdx] = tmp;
             System.out.println(Arrays.toString(arr));
         }
 
