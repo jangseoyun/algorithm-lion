@@ -7,15 +7,15 @@ public class SelectionSort02 {
     public int[] solution(int[] arr) {
 
         for (int i = 0; i < arr.length - 1; i++) {
-            int minIdx = i;
+            int maxIdx = i;
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[minIdx] > arr[j]) {
-                    minIdx = j;
+                if (arr[maxIdx] < arr[j]) {
+                    maxIdx = j;
                 }
             }
             int tmp = arr[i];
-            arr[i] = arr[minIdx];
-            arr[minIdx] = tmp;
+            arr[i] = arr[maxIdx];
+            arr[maxIdx] = tmp;
             System.out.println(Arrays.toString(arr));
         }
 
