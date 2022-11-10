@@ -3,7 +3,7 @@ package com.algorithm.day30;
 import java.util.Stack;
 
 public class SameNumberStack {
-    public int[] solution(int []arr) {
+    public int[] solution(int[] arr) {
 
         Stack<Integer> stack = new Stack<>();
         stack.push(arr[0]);
@@ -14,13 +14,18 @@ public class SameNumberStack {
             }
         }
 
+        for (Integer integer : stack) {
+            System.out.println(integer);
+        }
+
         int[] answer = new int[stack.size()];
-        for (int i = stack.size() - 1; i > 0; i--) {
+        for (int i = stack.size() - 1; i >= 0; i--) {
             answer[i] = stack.pop();
         }
 
         return answer;
     }
+
     public static void main(String[] args) {
         SameNumberStack T = new SameNumberStack();
         int[] arr = {1, 1, 3, 3, 0, 1, 1};
