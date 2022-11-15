@@ -8,21 +8,20 @@ import java.util.List;
 // List<Integer>, List<Integer>, List<Integer> 에 담아 보세요.
 public class QuickSort {
     public List<Integer> solution(int[] arr) {
-        int pivot = arr.length / 2;
+        int pivot = arr[arr.length / 2];
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();
 
         for (int i = 0; i < arr.length; i++) {
-            if (i < pivot) {
+            if (arr[i] < pivot) {
                 left.add(arr[i]);
             } else {
                 right.add(arr[i]);
             }
         }
-
-
-
+        return;
     }
+
     public static void main(String[] args) {
         QuickSort T = new QuickSort();
         int[] arr = {20, 18, 5, 19, 5, 25, 40, 50};
