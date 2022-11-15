@@ -18,6 +18,9 @@ public class QuickSort {
     }
 
     public List<Integer> solution(List<Integer> arr) {
+
+        if (arr.size() <= 1) return arr;
+
         int pivot = arr.get(arr.size() / 2); //5
         List<Integer> left = new ArrayList<>(); //5
         List<Integer> right = new ArrayList<>(); //20, 18, 19, 25, 40, 50
@@ -34,7 +37,7 @@ public class QuickSort {
         }
 
         //list를 합치는 연산
-        return merge(left, mid, right);
+        return merge(solution(left), mid, solution(right));
     }
 
     public static void main(String[] args) {
