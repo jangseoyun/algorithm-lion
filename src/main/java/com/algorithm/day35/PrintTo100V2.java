@@ -6,7 +6,7 @@ public class PrintTo100V2 {
         if (n == 100) {
             return;
         }
-        printTo100(n + 1);
+        printTo100(n + 1);//자기 자신 호출
     }
 
     public static void main(String[] args) {
