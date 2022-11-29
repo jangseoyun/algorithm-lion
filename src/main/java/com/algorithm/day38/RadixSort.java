@@ -28,7 +28,7 @@ public class RadixSort {
         return hash;
     }
 
-    public static int[] solution(int[] arr) {
+    public static int[] solution(int[] arr, int digit) {//배열, 자릿수 받기
         Queue<Integer>[] queueArr = new Queue[10];
         for (int i = 0; i < queueArr.length; i++) {
             queueArr[i] = new ArrayDeque<>();
@@ -36,15 +36,15 @@ public class RadixSort {
 
         //자릿수에 맞게 queue에 넣기 1, 10, 100...
         for (int i = 0; i < arr.length; i++) {
-            int digit = (int) Math.pow(10, 0);
-            queueArr[Math.floorDiv(arr[i], digit) % 10].add(arr[i]);
+            int divisor = (int) Math.pow(10, 0); //10의 0제곱이므로 1의 자리
+            queueArr[Math.floorDiv(arr[i], divisor) % 10].add(arr[i]);
         }
 
         return new int[10];
     }
     public static void main(String[] args) {
         int[] arr = {7, 4, 5, 9, 1, 0, 20};
-        solution(arr);
+        solution(arr, 1);
         getDigits(arr);
     }
 }
