@@ -1,7 +1,9 @@
 package com.algorithm.day38;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Queue;
 
 public class RadixSort {
     public static HashSet getDigits(int[] arr) {
@@ -25,19 +27,23 @@ public class RadixSort {
         Arrays.sort(answer);
         return hash;
     }
-    public static int[] solution(int[] arr) {
-        int[] redixArr = new int[10];
-        Arrays.fill(redixArr, -1);//배열 같은 값 초기화
 
-        for (int idx : arr) {
-            redixArr[idx] = idx;
+    public static int[] solution(int[] arr) {
+        Queue<Integer>[] queueArr = new Queue[10];
+        for (int i = 0; i < queueArr.length; i++) {
+            queueArr[i] = new ArrayDeque<>();
         }
 
-        System.out.println(Arrays.toString(redixArr));
-        return redixArr;
+        //자릿수에 맞게 queue에 넣기 1, 10, 100...
+        for (int i = 0; i < arr.length; i++) {
+            int digit = (int) Math.pow(10, 0);
+            queueArr[Math.floorDiv(arr[i], digit) % 10].add(arr[i]);
+        }
+
+        return new int[10];
     }
     public static void main(String[] args) {
-        int[] arr = {7, 4, 5, 9, 1, 0};
+        int[] arr = {7, 4, 5, 9, 1, 0, 20};
         solution(arr);
         getDigits(arr);
     }
