@@ -1,13 +1,12 @@
 package com.algorithm.day38;
 
-import com.algorithm.day19.HashPractice;
-
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class RadixSort {
     public static HashSet getDigits(int[] arr) {
         HashSet<Integer> hash = new HashSet<>();
+        //최대 자릿수 구하고 set을 통해 중복 제거
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == 0) {
                 hash.add(1);
@@ -16,6 +15,14 @@ public class RadixSort {
             }
         }
         System.out.println(hash);
+
+        //set 배열에 넣고 정렬
+        int[] answer = new int[hash.size()];
+        int idx = 0;
+        for (Integer num : hash) {
+            answer[idx++] = num;
+        }
+        Arrays.sort(answer);
         return hash;
     }
     public static int[] solution(int[] arr) {
