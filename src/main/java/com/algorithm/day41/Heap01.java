@@ -35,7 +35,7 @@ public class Heap01 {
     public static void main(String[] args) {
         int[] intArry = {6, 5, 7, 8};
         intArry = new int[]{5, 8, 4, 7, 3, 2, 9, 6, 7,};
-        for (int i = (intArry.length - 2); i >= 0; i--) {
+        for (int i = (intArry.length - 2) / 2; i >= 0; i--) {
             intArry = makeHeap(intArry, i);
             System.out.println(Arrays.toString(intArry));
         }
