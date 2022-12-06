@@ -21,19 +21,23 @@ public class Heap01 {
             greaterIdx = rightIdx;
         }
 
-        int tmp = intArry[parentIdx];
-        intArry[parentIdx] = intArry[greaterIdx];
-        intArry[greaterIdx] = tmp;
+        //swap
+        if (parentIdx != greaterIdx) {
+            int tmp = intArry[parentIdx];
+            intArry[parentIdx] = intArry[greaterIdx];
+            intArry[greaterIdx] = tmp;
+            makeHeap(intArry, greaterIdx);
+        }
 
         return intArry;
     }
 
     public static void main(String[] args) {
         int[] intArry = {6, 5, 7, 8};
-        int[] heap1 = makeHeap(intArry, 1);
-        System.out.println(Arrays.toString(heap1));
-
-        int[] heap2 = makeHeap(intArry, 0);
-        System.out.println(Arrays.toString(heap2));
+        intArry = new int[]{5, 8, 4, 7, 3, 2, 9, 6, 7,};
+        for (int i = (intArry.length - 2); i >= 0; i--) {
+            intArry = makeHeap(intArry, i);
+            System.out.println(Arrays.toString(intArry));
+        }
     }
 }
