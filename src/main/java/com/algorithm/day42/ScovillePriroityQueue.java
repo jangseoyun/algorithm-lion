@@ -3,7 +3,7 @@ package com.algorithm.day42;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Scoville02 {
+public class ScovillePriroityQueue {//우선순위 큐
     public static int solution(int[] scoville, int k) {
         int answer = 0;
         int make = 0;
