@@ -17,6 +17,7 @@ public class Scoville01 {
         while (pq.peek() < k) {
             if (pq.peek() <= k || make <= k) {
                 make = pq.poll() + (pq.poll() * 2);
+                pq.add(make);
                 answer++;
                 System.out.println(make);
                 System.out.println(answer);
