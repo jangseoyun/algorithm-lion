@@ -19,7 +19,7 @@ public class LCS01 {
                     dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
                     //두개가 다르면 max(위 || 왼쪽)
-                    dp[i][j] = Math.max(dp[i][j], dp[j][i]);
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
                 }
             }
         }
